@@ -1,4 +1,5 @@
-import 'package:blog_app/home.dart';
+import 'package:blog_app/core/theme/theme.dart';
+import 'package:blog_app/features/auth/data/domain/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,10 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const Home(),
+      theme: AppTheme.darkThemeMode,
+      home: const SignUp(),
       debugShowCheckedModeBanner: false,
     );
   }
