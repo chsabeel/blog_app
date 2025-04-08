@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomField extends StatelessWidget {
+class AuthField extends StatelessWidget {
   final String? hintText;
   final TextEditingController controller;
   final bool isobscured;
-  const CustomField({
+  const AuthField({
     super.key,
     this.hintText,
     required this.controller,
@@ -14,9 +14,12 @@ class CustomField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: true,
+      textInputAction: TextInputAction.next,
       decoration: InputDecoration(hintText: hintText),
       obscureText: isobscured,
       controller: controller,
+      enabled: true,
       validator: (value) {
         if (value!.trim().isEmpty) {
           return "$hintText is missing";

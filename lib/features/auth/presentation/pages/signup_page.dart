@@ -1,9 +1,9 @@
 import 'package:blog_app/core/theme/app_pallet.dart';
-import 'package:blog_app/features/auth/data/domain/presentation/pages/signin_page.dart';
-import 'package:blog_app/features/auth/data/domain/presentation/widgets/auth_gradient_button.dart';
-import 'package:blog_app/features/auth/data/domain/presentation/widgets/custom_field.dart';
+import 'package:blog_app/features/auth/presentation/pages/signin_page.dart';
+import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button.dart';
+import 'package:blog_app/features/auth/presentation/widgets/custom_field.dart';
+import 'package:blog_app/features/auth/presentation/widgets/page_route.dart';
 import 'package:flutter/material.dart';
-
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -42,32 +42,21 @@ class _SignUpState extends State<SignUp> {
                 style: TextStyle(fontSize: 57, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 25),
-              CustomField(hintText: "Name", controller: nameController),
+              AuthField(hintText: "Name", controller: nameController),
               SizedBox(height: 12),
-              CustomField(hintText: "Email", controller: emailController),
+              AuthField(hintText: "Email", controller: emailController),
               SizedBox(height: 12),
-              CustomField(
+              AuthField(
                 hintText: "Password",
                 controller: passwordController,
                 isobscured: true,
               ),
               SizedBox(height: 25),
-              AuthGradientButton(
-                buttonText: "Sign Up",
-                ontap: ()  {
-                },
-              ),
+              AuthGradientButton(buttonText: "Sign Up", ontap: () {}),
               SizedBox(height: 25),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignIn();
-                      },
-                    ),
-                  );
+                  Navigator.pushReplacement(context, MyCustomPageRoute(page: SignIn()));
                 },
                 child: RichText(
                   text: TextSpan(

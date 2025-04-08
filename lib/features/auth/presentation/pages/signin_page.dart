@@ -1,7 +1,8 @@
 import 'package:blog_app/core/theme/app_pallet.dart';
-import 'package:blog_app/features/auth/data/domain/presentation/pages/signup_page.dart';
-import 'package:blog_app/features/auth/data/domain/presentation/widgets/auth_gradient_button.dart';
-import 'package:blog_app/features/auth/data/domain/presentation/widgets/custom_field.dart';
+import 'package:blog_app/features/auth/presentation/pages/signup_page.dart';
+import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button.dart';
+import 'package:blog_app/features/auth/presentation/widgets/custom_field.dart';
+import 'package:blog_app/features/auth/presentation/widgets/page_route.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -39,9 +40,9 @@ class _SignInState extends State<SignIn> {
                 style: TextStyle(fontSize: 57, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 25),
-              CustomField(hintText: "Email", controller: emailController),
+              AuthField(hintText: "Email", controller: emailController),
               SizedBox(height: 12),
-              CustomField(
+              AuthField(
                 hintText: "Password",
                 controller: passwordController,
                 isobscured: true,
@@ -51,14 +52,7 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 25),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignUp();
-                      },
-                    ),
-                  );
+                  Navigator.push(context, MyCustomPageRoute(page: SignUp()));
                 },
                 child: RichText(
                   text: TextSpan(
